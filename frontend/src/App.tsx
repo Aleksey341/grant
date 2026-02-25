@@ -37,7 +37,7 @@ function AppRoutes(){
 }
 export default function App(){
   return(
-    <BrowserRouter>
+    <BrowserRouter basename="/grant">
       <AuthProvider>
         <AppRoutes/>
         <Toaster position="top-right"/>
