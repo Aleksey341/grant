@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrantsAssistant</title>
+    <script>
+      // Handle SPA redirect from 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Handle ?p= param from 404.html
+        var search = window.location.search;
+        if (search) {
+          var p = new URLSearchParams(search).get('p');
+          if (p) {
+            var base = '/grant';
+            history.replaceState(null, null, base + p + (window.location.hash || ''));
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/grant/assets/index-CtlYvtgI.js"></script>
+    <link rel="stylesheet" crossorigin href="/grant/assets/index-B3v4OT4j.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
